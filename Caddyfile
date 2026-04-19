@@ -1,0 +1,17 @@
+# Caddy configuration — reverse proxy to the SvelteKit app
+#
+# Replace "yourdomain.example.com" with your actual domain.
+# Caddy will automatically provision TLS certificates via Let's Encrypt.
+#
+# For local development, change the site block back to "http://localhost".
+
+yourdomain.example.com {
+    # Forward all requests to the SvelteKit container on port 3000
+    reverse_proxy app:3000 {
+        # Pass the original Host header so SvelteKit knows the real domain
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+}

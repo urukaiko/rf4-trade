@@ -1,0 +1,406 @@
+├── .github
+│   └── workflows
+│       └── ci.yml
+├── drizzle
+│   ├── meta
+│   │   ├── 0000_snapshot.json
+│   │   ├── 0001_snapshot.json
+│   │   └── _journal.json
+│   ├── 0000_tan_excalibur.sql
+│   └── 0001_striped_demogoblin.sql
+├── src
+│   ├── lib
+│   │   ├── client
+│   │   │   ├── __tests__
+│   │   │   │   ├── sse-filter.test.ts
+│   │   │   │   └── sse-stream.test.ts
+│   │   │   ├── auth.ts
+│   │   │   ├── useInfiniteScroll.svelte.ts
+│   │   │   └── useTradeStream.svelte.ts
+│   │   ├── components
+│   │   │   ├── trade
+│   │   │   │   ├── __tests__
+│   │   │   │   │   └── slider-math.test.ts
+│   │   │   │   ├── CategoryAccordion.svelte
+│   │   │   │   ├── CreateTradeForm.svelte
+│   │   │   │   ├── ItemCatalogTable.svelte
+│   │   │   │   ├── ItemGrid.svelte
+│   │   │   │   ├── ItemSelector.svelte
+│   │   │   │   ├── StreamStatus.svelte
+│   │   │   │   ├── TradeCard.svelte
+│   │   │   │   ├── TradeFilter.svelte
+│   │   │   │   ├── TradeList.svelte
+│   │   │   │   ├── TradeSkeleton.svelte
+│   │   │   │   └── TradeSummary.svelte
+│   │   │   ├── ui
+│   │   │   │   ├── __tests__
+│   │   │   │   │   ├── Button.test.ts
+│   │   │   │   │   ├── Input.test.ts
+│   │   │   │   │   └── components.test.ts
+│   │   │   │   ├── Accordion.svelte
+│   │   │   │   ├── AlertDialog.svelte
+│   │   │   │   ├── Avatar.svelte
+│   │   │   │   ├── Badge.svelte
+│   │   │   │   ├── Button.svelte
+│   │   │   │   ├── Card.svelte
+│   │   │   │   ├── CardContent.svelte
+│   │   │   │   ├── CardDescription.svelte
+│   │   │   │   ├── CardFooter.svelte
+│   │   │   │   ├── CardHeader.svelte
+│   │   │   │   ├── CardTitle.svelte
+│   │   │   │   ├── Combobox.svelte
+│   │   │   │   ├── Command.svelte
+│   │   │   │   ├── Dialog.svelte
+│   │   │   │   ├── DropdownMenu.svelte
+│   │   │   │   ├── Input.svelte
+│   │   │   │   ├── Label.svelte
+│   │   │   │   ├── Pagination.svelte
+│   │   │   │   ├── Popover.svelte
+│   │   │   │   ├── ScrollArea.svelte
+│   │   │   │   ├── Select.svelte
+│   │   │   │   ├── Separator.svelte
+│   │   │   │   ├── Sheet.svelte
+│   │   │   │   ├── Skeleton.svelte
+│   │   │   │   ├── Table.svelte
+│   │   │   │   ├── TableBody.svelte
+│   │   │   │   ├── TableCaption.svelte
+│   │   │   │   ├── TableCell.svelte
+│   │   │   │   ├── TableFooter.svelte
+│   │   │   │   ├── TableHead.svelte
+│   │   │   │   ├── TableHeader.svelte
+│   │   │   │   ├── TableRow.svelte
+│   │   │   │   ├── Tabs.svelte
+│   │   │   │   ├── Textarea.svelte
+│   │   │   │   └── Tooltip.svelte
+│   │   │   └── index.ts
+│   │   ├── i18n
+│   │   │   ├── locales
+│   │   │   │   ├── en.json
+│   │   │   │   └── ru.json
+│   │   │   └── index.ts
+│   │   ├── server
+│   │   │   ├── __tests__
+│   │   │   │   └── api.test.ts
+│   │   │   ├── db
+│   │   │   │   ├── schema
+│   │   │   │   │   ├── index.ts
+│   │   │   │   │   ├── items.ts
+│   │   │   │   │   ├── players.ts
+│   │   │   │   │   ├── trade.ts
+│   │   │   │   │   └── users.ts
+│   │   │   │   ├── index.ts
+│   │   │   │   └── seed.ts
+│   │   │   ├── api.ts
+│   │   │   ├── auth.ts
+│   │   │   ├── cache.ts
+│   │   │   ├── logger.ts
+│   │   │   └── trade-listener.ts
+│   │   └── shared
+│   │       ├── constants
+│   │       │   ├── auth.ts
+│   │       │   ├── index.ts
+│   │       │   ├── trade.ts
+│   │       │   └── ui.ts
+│   │       ├── state
+│   │       │   ├── __tests__
+│   │       │   │   └── trade-form.test.ts
+│   │       │   └── trade-form.svelte.ts
+│   │       ├── types
+│   │       │   ├── index.ts
+│   │       │   ├── item.ts
+│   │       │   └── trade.ts
+│   │       ├── utils
+│   │       │   └── i18n.ts
+│   │       ├── validation
+│   │       │   ├── __tests__
+│   │       │   │   └── validation.test.ts
+│   │       │   ├── index.ts
+│   │       │   ├── item.ts
+│   │       │   └── trade.ts
+│   │       ├── clipboard.ts
+│   │       └── toast.ts
+│   ├── routes
+│   │   ├── (app)
+│   │   │   ├── items
+│   │   │   │   └── [id]
+│   │   │   │       ├── +page.server.ts
+│   │   │   │       └── +page.svelte
+│   │   │   ├── profile
+│   │   │   │   ├── fix
+│   │   │   │   │   ├── +page.server.ts
+│   │   │   │   │   └── +page.svelte
+│   │   │   │   ├── trades
+│   │   │   │   │   ├── +page.server.ts
+│   │   │   │   │   └── +page.svelte
+│   │   │   │   ├── +page.server.ts
+│   │   │   │   └── +page.svelte
+│   │   │   ├── trade
+│   │   │   │   ├── [id]
+│   │   │   │   │   ├── +page.server.ts
+│   │   │   │   │   └── +page.svelte
+│   │   │   │   ├── +page.server.ts
+│   │   │   │   └── +page.svelte
+│   │   │   ├── +error.svelte
+│   │   │   ├── +layout.server.ts
+│   │   │   ├── +layout.svelte
+│   │   │   └── +page.server.ts
+│   │   ├── api
+│   │   │   ├── auth
+│   │   │   │   └── [...all]
+│   │   │   │       └── +server.ts
+│   │   │   ├── health
+│   │   │   │   └── +server.ts
+│   │   │   └── trades
+│   │   │       ├── __tests__
+│   │   │       │   └── trades.integration.test.ts
+│   │   │       ├── accept
+│   │   │       │   └── +server.ts
+│   │   │       ├── close
+│   │   │       │   └── +server.ts
+│   │   │       ├── stream
+│   │   │       │   └── +server.ts
+│   │   │       └── +server.ts
+│   │   ├── login
+│   │   │   ├── +page.server.ts
+│   │   │   └── +page.svelte
+│   │   ├── +error.svelte
+│   │   └── +layout.svelte
+│   ├── app.css
+│   ├── app.d.ts
+│   ├── app.html
+│   └── hooks.server.ts
+├── static
+│   └── images
+│       └── items
+│           ├── baits
+│           │   ├── baitfish
+│           │   ├── brustaceans
+│           │   │   └── gammarus_fresh.png
+│           │   ├── insects
+│           │   │   ├── cricket.png
+│           │   │   ├── dorbeetle.png
+│           │   │   ├── fly.png
+│           │   │   ├── gadfly.png
+│           │   │   ├── gadfly_little.png
+│           │   │   ├── grasshopper.png
+│           │   │   ├── gryllotalpa.png
+│           │   │   ├── maybug.png
+│           │   │   ├── mayfly.png
+│           │   │   └── waterbug.png
+│           │   ├── larvae
+│           │   │   ├── bloodworm.png
+│           │   │   ├── caddisfly.png
+│           │   │   ├── maggot.png
+│           │   │   ├── maggot_caster.png
+│           │   │   ├── maybug_larva.png
+│           │   │   ├── naiad.png
+│           │   │   ├── scolytinae.png
+│           │   │   ├── stonefly_nymph.png
+│           │   │   └── unibeetle_larva.png
+│           │   ├── live
+│           │   │   └── baitfrog.png
+│           │   ├── natural
+│           │   │   ├── bait_dreissena.png
+│           │   │   ├── bread.png
+│           │   │   ├── cabbage.png
+│           │   │   ├── caviar.png
+│           │   │   ├── cheese_cube.png
+│           │   │   ├── corn.png
+│           │   │   ├── crab_meat.png
+│           │   │   ├── crawfish_meat.png
+│           │   │   ├── dough_cottage.png
+│           │   │   ├── dough_egg.png
+│           │   │   ├── dough_garlic.png
+│           │   │   ├── dough_honey.png
+│           │   │   ├── dough_sweet.png
+│           │   │   ├── fish_pieces.png
+│           │   │   ├── peas.png
+│           │   │   ├── porridge_corn.png
+│           │   │   ├── porridge_oatmeal.png
+│           │   │   ├── porridge_pea.png
+│           │   │   ├── porridge_pearl_barley.png
+│           │   │   ├── porridge_semolina.png
+│           │   │   ├── potato.png
+│           │   │   ├── unio_crassus.png
+│           │   │   ├── watergrass.png
+│           │   │   └── wheat_grain.png
+│           │   └── worms
+│           │       ├── black_leech.png
+│           │       ├── muckworm.png
+│           │       ├── vypolzok_01.png
+│           │       ├── worm_01.png
+│           │       ├── worm_asurv.png
+│           │       ├── worm_msor.png
+│           │       ├── worm_orlen.png
+│           │       ├── worm_sur.png
+│           │       └── worm_volh.png
+│           ├── currency
+│           │   ├── gold.png
+│           │   └── premium.png
+│           ├── food
+│           │   ├── alcohol
+│           │   │   ├── AV_shamp_1l.png
+│           │   │   ├── AV_shamp_p_6l.png
+│           │   │   ├── XXIVA_bottle_vdka.png
+│           │   │   ├── apple_sidr.png
+│           │   │   ├── boyar_bottle_vdka.png
+│           │   │   ├── hooch_corn.png
+│           │   │   ├── hooch_potato.png
+│           │   │   ├── lb_bottle_eks.png
+│           │   │   ├── lb_bottle_krep.png
+│           │   │   ├── lb_bottle_trad.png
+│           │   │   ├── pill_pack.png
+│           │   │   ├── rd_red_vine.png
+│           │   │   ├── rd_white_vine.png
+│           │   │   ├── rot_bottle_porto.png
+│           │   │   ├── tungus_buben.png
+│           │   │   ├── tungus_vodka.png
+│           │   │   ├── tungus_vodka_b.png
+│           │   │   ├── vine_bottle_em.png
+│           │   │   ├── wood_bottle_cask.png
+│           │   │   ├── wood_bottle_dark.png
+│           │   │   ├── wood_bottle_lager.png
+│           │   │   ├── wood_can_cask.png
+│           │   │   ├── wood_can_dark.png
+│           │   │   ├── wood_can_lager.png
+│           │   │   ├── zdn_bottle_cogn3.png
+│           │   │   ├── zdn_bottle_cogn5.png
+│           │   │   └── zdn_bottle_vdka.png
+│           │   ├── drinks
+│           │   │   ├── lb_bottle_lim.png
+│           │   │   ├── lim_ny25_bottle.png
+│           │   │   ├── thermos_cacao.png
+│           │   │   ├── thermos_coffee.png
+│           │   │   ├── thermos_gwein.png
+│           │   │   └── thermos_tea.png
+│           │   ├── food
+│           │   │   ├── bublik.png
+│           │   │   ├── buckwheat_porridge.png
+│           │   │   ├── caviar_black.png
+│           │   │   ├── caviar_pike.png
+│           │   │   ├── caviar_red.png
+│           │   │   ├── cucumbers_mc.png
+│           │   │   ├── dried_chekhon.png
+│           │   │   ├── dried_plotva.png
+│           │   │   ├── fish_soup_nal.png
+│           │   │   ├── fish_soup_red.png
+│           │   │   ├── fish_soup_tr.png
+│           │   │   ├── fried_bychki.png
+│           │   │   ├── fried_carp.png
+│           │   │   ├── fried_karasy.png
+│           │   │   ├── fried_nalim.png
+│           │   │   ├── fried_sudak.png
+│           │   │   ├── hm_lard.png
+│           │   │   ├── kalach.png
+│           │   │   ├── melon.png
+│           │   │   ├── pm_honey_l.png
+│           │   │   ├── r_pie.png
+│           │   │   ├── rye_bread_r.png
+│           │   │   ├── sm_pikeperch.png
+│           │   │   ├── sm_trout.png
+│           │   │   ├── smoked_bream.png
+│           │   │   ├── smoked_catfish.png
+│           │   │   ├── smoked_salmon.png
+│           │   │   └── wmelon_ast.png
+│           │   └── ingredients
+│           │       ├── apples.png
+│           │       ├── barm_ff.png
+│           │       ├── beef.png
+│           │       ├── black_pepper_ff.png
+│           │       ├── butter_ff.png
+│           │       ├── cake_rf4.png
+│           │       ├── carrot.png
+│           │       ├── cf_squid.png
+│           │       ├── combikorm.png
+│           │       ├── cucumbers.png
+│           │       ├── farm_c_cheese.png
+│           │       ├── farm_cheese.png
+│           │       ├── farm_s_cream.png
+│           │       ├── feedadds_wheat.png
+│           │       ├── ff_black_tea.png
+│           │       ├── ff_cornflour.png
+│           │       ├── ff_garlic.png
+│           │       ├── ff_gv_spices.png
+│           │       ├── ff_honey.png
+│           │       ├── ff_ins_coffe.png
+│           │       ├── ff_ins_noodles.png
+│           │       ├── ff_krak_sausage.png
+│           │       ├── ff_pack_kefir.png
+│           │       ├── ff_pack_milk.png
+│           │       ├── ff_pack_sausages.png
+│           │       ├── ff_pasta.png
+│           │       ├── ff_pearl_barley.png
+│           │       ├── ff_pork_canned.png
+│           │       ├── ff_proc_cheese.png
+│           │       ├── ff_saira_canned.png
+│           │       ├── ff_salt.png
+│           │       ├── ff_semolina.png
+│           │       ├── ff_sugar.png
+│           │       ├── ff_sun_oil.png
+│           │       ├── ff_wheat_flour.png
+│           │       ├── food_cacao.png
+│           │       ├── food_drymilk.png
+│           │       ├── food_egg.png
+│           │       ├── food_gorokh.png
+│           │       ├── food_hercules.png
+│           │       ├── food_rice.png
+│           │       ├── food_sweetmilk.png
+│           │       ├── grechka.png
+│           │       ├── lard.png
+│           │       ├── loaf_01.png
+│           │       ├── onion.png
+│           │       ├── pack_marshm.png
+│           │       ├── pb_d_choc.png
+│           │       ├── pb_m_choc.png
+│           │       ├── plum.png
+│           │       ├── pork.png
+│           │       ├── potatoes.png
+│           │       └── sd_shoc_bar.png
+│           ├── categories.json
+│           └── translations.json
+├── tests
+│   ├── e2e
+│   │   ├── auth.spec.ts
+│   │   ├── guest.spec.ts
+│   │   ├── locale.spec.ts
+│   │   ├── routes.spec.ts
+│   │   └── trades.spec.ts
+│   ├── mocks
+│   │   └── env-dynamic-private.ts
+│   └── setup
+│       ├── helpers.ts
+│       ├── seed-test.ts
+│       └── vitest.ts
+├── tools
+│   ├── project-map
+│   │   ├── renderer
+│   │   │   ├── compact.ts
+│   │   │   └── index.ts
+│   │   ├── config.ts
+│   │   ├── main.ts
+│   │   ├── normalizer.ts
+│   │   ├── parser.ts
+│   │   ├── scanner.ts
+│   │   └── types.ts
+│   ├── project-tree
+│   │   └── tree.py
+│   ├── gather_project.py
+│   ├── project-map.txt
+│   └── project-tree.txt
+├── .dockerignore
+├── .env
+├── .env.example
+├── .env.production.example
+├── .gitignore
+├── Caddyfile
+├── Dockerfile
+├── README.md
+├── docker-compose.yml
+├── drizzle.config.ts
+├── package.json
+├── playwright.config.ts
+├── svelte.config.js
+├── tsconfig.json
+├── uno.config.ts
+├── vite.config.js
+└── vitest.config.ts
