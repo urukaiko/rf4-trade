@@ -2,6 +2,9 @@ import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { svelteTesting } from '@testing-library/svelte/vite';
 import { defineConfig } from 'vitest/config';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [
@@ -14,8 +17,8 @@ export default defineConfig({
   resolve: {
     conditions: ['browser'],
     alias: {
-      $lib: path.resolve('./src/lib'),
-      '$env/dynamic/private': path.resolve('./tests/mocks/env-dynamic-private.ts'),
+      $lib: path.resolve(__dirname, './src/lib'),
+      '$env/dynamic/private': path.resolve(__dirname, './tests/mocks/env-dynamic-private.ts'),
     },
   },
   test: {

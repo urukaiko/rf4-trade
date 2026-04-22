@@ -1,10 +1,8 @@
-// UnoCSS configuration — global mode + CSS custom properties for design tokens
+// UnoCSS configuration — scoped mode for Svelte
 import {
   defineConfig,
   presetAttributify,
-  presetIcons,
   presetUno,
-  transformerAttributifyJsx,
 } from 'unocss';
 
 export default defineConfig({
@@ -16,15 +14,6 @@ export default defineConfig({
       dark: 'class',
     }),
     presetAttributify(),
-    presetIcons({
-      scale: 1.2,
-      warn: true,
-    }),
-  ],
-  transformers: [transformerAttributifyJsx()],
-  rules: [
-    [/^border$/, () => ({ 'border-style': 'solid', 'border-width': '1px' })],
-    [/^border-(.+)$/, ([], { raw }) => ({ 'border-style': 'solid', 'border-width': raw })],
   ],
   theme: {
     colors: {

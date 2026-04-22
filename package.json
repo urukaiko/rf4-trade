@@ -5,17 +5,25 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "dev:db": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d db",
+    "dev:full": "bun run dev:db && bun run dev",
+
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "test:setup": "DATABASE_URL=\"${DATABASE_URL_TEST:-postgresql://rf4user:rf4pass@localhost:5432/rf4trade_test}\" bun run db:migrate && DATABASE_URL=\"${DATABASE_URL_TEST:-postgresql://rf4user:rf4pass@localhost:5432/rf4trade_test}\" bun run db:seed",
+
     "test": "DATABASE_URL=\"${DATABASE_URL_TEST:-postgresql://rf4user:rf4pass@localhost:5432/rf4trade_test}\" vitest run",
+    "test:watch": "DATABASE_URL=\"${DATABASE_URL_TEST:-postgresql://rf4user:rf4pass@localhost:5432/rf4trade_test}\" vitest",
     "test:e2e": "playwright test",
+
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "db:seed": "bun src/lib/server/db/seed.ts"
+    "db:seed": "bun src/lib/server/db/seed.ts",
+    "db:up": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d db",
+    "db:down": "docker compose -f docker-compose.yml -f docker-compose.dev.yml down",
+    "db:logs": "docker compose -f docker-compose.yml -f docker-compose.dev.yml logs -f db",
+    "db:reset": "docker compose -f docker-compose.yml -f docker-compose.dev.yml down -v"
   },
   "dependencies": {
     "better-auth": "^1.6.1",
@@ -24,11 +32,9 @@
     "pg": "^8.20.0",
     "postgres": "^3.4.0",
     "svelte-5-french-toast": "^2.0.6",
-    "ts-morph": "^28.0.0",
     "valibot": "^1.0.0"
   },
   "devDependencies": {
-    "@iconify-json/mdi": "^1.0.0",
     "@playwright/test": "^1.59.1",
     "@sveltejs/kit": "^2.16.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",

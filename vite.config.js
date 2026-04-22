@@ -10,19 +10,16 @@ export default defineConfig({
   ],
 
   server: {
-    // Allow Docker to reach the dev server
-    host: '0.0.0.0',
+    // Allow access from other devices (ZeroTier, LAN) in dev
+    // Not needed when running inside Docker — ports are mapped via compose
+    host: process.env.VITE_HOST || 'localhost',
     port: 5173,
     strictPort: false,
-    // Watch all files for hot-reload in development
+    // Polling is needed on Windows for reliable file change detection
+    // via WSL2 / Docker. Not needed on Linux/macOS (wastes CPU).
     watch: {
-      // Enable polling on Windows for reliable file change detection
-      usePolling: true,
+      usePolling: process.platform === 'win32',
       interval: 300,
-    },
-    hmr: {
-      protocol: 'ws',
-      port: 5173,
     },
   },
 });
