@@ -1,0 +1,166 @@
+# ============================================================
+# CI/CD Pipeline — Build, Push & Deploy
+# ============================================================
+# Triggers on every push to main:
+#   builds Docker image, pushes to ghcr.io, deploys to VPS.
+#
+# TODO: Uncomment check and test jobs when type errors and
+# tests are fixed. Remove needs and if override from build.
+# ============================================================
+
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # ==========================================================
+  # Job 1: Type-check (DISABLED — 5 type errors in codebase)
+  # Uncomment when all svelte-check errors are fixed.
+  # ==========================================================
+  # check:
+  #   name: Type-check
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #
+  #     - uses: oven-sh/setup-bun@v2
+  #       with:
+  #         bun-version: latest
+  #
+  #     - run: bun install --frozen-lockfile
+  #
+  #     - name: Run svelte-check
+  #       run: bun run check
+
+  # ==========================================================
+  # Job 2: Unit Tests (DISABLED — no working tests yet)
+  # Uncomment when test suite is ready.
+  # ==========================================================
+  # test:
+  #   name: Unit Tests
+  #   runs-on: ubuntu-latest
+  #
+  #   services:
+  #     postgres:
+  #       image: postgres:16-alpine
+  #       env:
+  #         POSTGRES_USER: testuser
+  #         POSTGRES_PASSWORD: testpass
+  #         POSTGRES_DB: rf4trade_test
+  #       ports:
+  #         - 5432:5432
+  #       options: >-
+  #         --health-cmd "pg_isready -U testuser"
+  #         --health-interval 5s
+  #         --health-timeout 5s
+  #         --health-retries 5
+  #
+  #   env:
+  #     DATABASE_URL: postgresql://testuser:testpass@localhost:5432/rf4trade_test
+  #     DATABASE_URL_TEST: postgresql://testuser:testpass@localhost:5432/rf4trade_test
+  #
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #
+  #     - uses: oven-sh/setup-bun@v2
+  #       with:
+  #         bun-version: latest
+  #
+  #     - run: bun install --frozen-lockfile
+  #
+  #     - name: Run migrations
+  #       run: bun run db:migrate
+  #
+  #     - name: Run tests
+  #       run: bun run test
+
+  # ==========================================================
+  # Job 3: Build & Push Docker Image
+  # ==========================================================
+  build:
+    name: Build & Push Image
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels)
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix=
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            BETTER_AUTH_SECRET=build-time-placeholder-not-used-at-runtime
+            BETTER_AUTH_URL=http://localhost:3000
+            VITE_BETTER_AUTH_URL=http://localhost:3000
+
+  # ==========================================================
+  # Job 4: Deploy to VPS
+  # ==========================================================
+  deploy:
+    name: Deploy to VPS
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script_stop: true
+          script: |
+            set -euo pipefail
+            cd /opt/rf4-trade
+
+            # 1. Update config files from repository
+            git pull origin main
+
+            # 2. Log in to GitHub Container Registry
+            echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+
+            # 3. Pull latest image from registry
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml pull app
+
+            # 4. Run database migrations from the container image
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml run --rm app bun run db:migrate
+
+            # 5. Restart app — wait for healthy state
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --wait app
+
+            # 6. Remove all unused images (never --volumes)
+            docker image prune -a -f
+
+            echo "Deploy complete: $(date -u)"

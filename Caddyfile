@@ -1,11 +1,13 @@
 # Caddy configuration — PRODUCTION
 #
-# Replace "yourdomain.example.com" with your actual domain.
+# Domain is read from the DOMAIN environment variable.
+# Set DOMAIN in .env on the VPS (e.g. DOMAIN=rf4trade.com).
+#
 # Caddy will automatically provision TLS certificates via Let's Encrypt.
 #
 # Used by: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 
-yourdomain.example.com {
+{$DOMAIN} {
     # Compress responses
     encode gzip zstd
 

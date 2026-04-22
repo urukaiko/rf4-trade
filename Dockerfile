@@ -48,6 +48,9 @@ RUN bun install --frozen-lockfile --production
 FROM oven/bun:1-alpine AS runtime
 WORKDIR /app
 
+# curl is needed for Docker healthcheck (docker-compose.prod.yml)
+RUN apk add --no-cache curl
+
 # App runtime
 COPY --from=build /app/build ./build
 

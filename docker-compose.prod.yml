@@ -5,10 +5,17 @@
 # ============================================================
 
 services:
-  # ---------- App: no external port — access via Caddy only ----------
+  # ---------- App: pull from registry, no local build ----------
   app:
+    image: ghcr.io/${GITHUB_REPO:?GITHUB_REPO is required}:latest
     environment:
       - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
     deploy:
       resources:
         limits:
@@ -22,6 +29,8 @@ services:
   caddy:
     image: caddy:2-alpine
     container_name: rf4-trade-caddy
+    environment:
+      - DOMAIN=${DOMAIN:?DOMAIN is required in production}
     ports:
       - "80:80"
       - "443:443"
@@ -31,7 +40,8 @@ services:
       - caddy_data:/data
       - caddy_config:/config
     depends_on:
-      - app
+      app:
+        condition: service_healthy
     networks:
       - internal
     restart: unless-stopped
