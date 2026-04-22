@@ -5,6 +5,8 @@
 # Prod: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 # ============================================================
 
+name: rf4-trade
+
 services:
   # ---------- SvelteKit application (Bun) ----------
   app:
