@@ -1,0 +1,28 @@
+# Caddy configuration — LOCAL DEVELOPMENT
+#
+# Used for testing the production-like setup locally.
+# Listens on http://localhost (port 80, no TLS).
+#
+# Usage:
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+#   Then open http://localhost:3000 (direct app access)
+#
+# To test with Caddy locally:
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml --profile local-caddy up
+#   Then open http://localhost
+
+http://localhost {
+    encode gzip zstd
+
+    reverse_proxy app:3000 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+
+    log {
+        output stdout
+        format console
+    }
+}

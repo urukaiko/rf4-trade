@@ -1,12 +1,14 @@
 # ============================================================
-# Docker Compose — SvelteKit (Bun) + PostgreSQL 16 behind Caddy
+# Docker Compose — Base configuration (shared between dev & prod)
 # ============================================================
-#  docker compose up --build   →  http://localhost
+# Dev:  docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+# Prod: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 # ============================================================
 
 services:
   # ---------- SvelteKit application (Bun) ----------
   app:
+    image: rf4-trade
     build:
       context: .
       args:
@@ -14,12 +16,10 @@ services:
         BETTER_AUTH_URL: ${BETTER_AUTH_URL:-http://localhost:3000}
         VITE_BETTER_AUTH_URL: ${VITE_BETTER_AUTH_URL:-http://localhost:3000}
         DATABASE_URL: postgresql://build:build@placeholder:5432/placeholder
-    ports:
-      - "3000:3000"
     container_name: rf4-trade
     environment:
-      - NODE_ENV=production
-      - DATABASE_URL=postgresql://${POSTGRES_USER:-rf4user}:${POSTGRES_PASSWORD:-rf4pass}@db:5432/${POSTGRES_DB:-rf4trade}
+      - NODE_ENV=${NODE_ENV:-development}
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-rf4user}:${POSTGRES_PASSWORD:?Required}@db:5432/${POSTGRES_DB:-rf4trade}
       - PORT=3000
       - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET:?Required}
       - BETTER_AUTH_URL=${BETTER_AUTH_URL:-http://localhost:3000}
@@ -37,14 +37,10 @@ services:
     container_name: rf4-trade-db
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-rf4user}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Database password required}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Required}
       POSTGRES_DB: ${POSTGRES_DB:-rf4trade}
-    command: ["postgres", "-c", "wal_level=logical"]
     volumes:
       - pgdata:/var/lib/postgresql/data
-    # Exposed for dev only — comment out in production
-    ports:
-      - "5432:5432"
     networks:
       - internal
     healthcheck:
@@ -54,30 +50,10 @@ services:
       retries: 5
     restart: unless-stopped
 
-  # ---------- Caddy reverse proxy ----------
-  caddy:
-    image: caddy:2-alpine
-    container_name: rf4-trade-caddy
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      - app
-    networks:
-      - internal
-    restart: unless-stopped
-
-# Internal network — all three services communicate here
+# Internal network — all services communicate here
 networks:
   internal:
 
 # Named volumes
 volumes:
   pgdata:
-  caddy_data:
-  caddy_config:

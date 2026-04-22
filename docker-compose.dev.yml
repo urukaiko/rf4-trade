@@ -1,0 +1,32 @@
+# ============================================================
+# Docker Compose — Dev overlay
+# ============================================================
+# Usage: docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+# ============================================================
+
+services:
+  # ---------- App: expose port for direct dev access ----------
+  app:
+    ports:
+      - "3000:3000"
+
+  # ---------- DB: expose port for GUI tools (DBeaver, pgAdmin) ----------
+  db:
+    ports:
+      - "5432:5432"
+
+  # ---------- Caddy: optional local reverse proxy ----------
+  # Only starts with: --profile local-caddy
+  caddy:
+    image: caddy:2-alpine
+    container_name: rf4-trade-caddy-dev
+    profiles: ["local-caddy"]
+    ports:
+      - "80:80"
+    volumes:
+      - ./Caddyfile.dev:/etc/caddy/Caddyfile:ro
+    depends_on:
+      - app
+    networks:
+      - internal
+    restart: unless-stopped

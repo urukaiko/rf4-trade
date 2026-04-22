@@ -1,0 +1,41 @@
+# ============================================================
+# Docker Compose — Prod overlay
+# ============================================================
+# Usage: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+# ============================================================
+
+services:
+  # ---------- App: no external port — access via Caddy only ----------
+  app:
+    environment:
+      - NODE_ENV=production
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+  # ---------- DB: no external port — internal only ----------
+  db:
+    # No ports exposed — DB is only accessible within the internal network
+
+  # ---------- Caddy reverse proxy ----------
+  caddy:
+    image: caddy:2-alpine
+    container_name: rf4-trade-caddy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+    networks:
+      - internal
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

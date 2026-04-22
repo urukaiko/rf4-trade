@@ -8,6 +8,7 @@ build
 # Development / IDE
 .git
 .vscode
+.idea
 *.md
 
 # Environment files — prevent leaking secrets into the image
@@ -18,11 +19,26 @@ build
 # Docker files (not needed inside the build context)
 Dockerfile
 docker-compose.yml
+docker-compose.dev.yml
+docker-compose.prod.yml
 .dockerignore
 
 # Caddy
 Caddyfile
 
+# Tests — not needed in Docker image
+tests/
+*.test.ts
+*.spec.ts
+playwright.config.ts
+vitest.config.ts
+
+# CI
+.github
+
 # OS artifacts
 .DS_Store
 Thumbs.db
+
+# Local tools
+tools
