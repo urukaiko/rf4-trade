@@ -62,7 +62,11 @@ COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/drizzle.config.ts ./drizzle.config.ts
 COPY --from=build /app/drizzle ./drizzle
 COPY --from=build /app/src/lib/server/db ./src/lib/server/db
-COPY --from=build /app/static ./static
+
+# NOTE: static/ is NOT copied — game assets are gitignored (public repo).
+# If needed at runtime (e.g. db:seed), mount as a Docker volume:
+#   volumes:
+#     - ./static:/app/static
 
 # NOTE: BETTER_AUTH_SECRET is NOT set here.
 # It is provided at runtime via docker-compose environment variables.
