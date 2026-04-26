@@ -161,7 +161,10 @@ jobs:
             # 5. Restart app — wait for healthy state
             docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --wait app
 
-            # 6. Remove all unused images (never --volumes)
+            # 6. Apply Caddy config changes if any (safe: does nothing if configs unchanged)
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d caddy
+
+            # 7. Remove all unused images (never --volumes)
             docker image prune -a -f
 
             echo "Deploy complete: $(date -u)"
