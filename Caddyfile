@@ -11,12 +11,20 @@
     # Compress responses
     encode gzip zstd
 
-    # Forward all requests to the SvelteKit container on port 3000
-    reverse_proxy app:3000 {
-        header_up Host {host}
-        header_up X-Real-IP {remote_host}
-        header_up X-Forwarded-For {remote_host}
-        header_up X-Forwarded-Proto {scheme}
+    # 1. Serve static images directly from disk (fast, bypasses Bun)
+    handle /images/* {
+        root * /srv/static
+        file_server
+    }
+
+    # 2. Forward all other requests to the SvelteKit container
+    handle {
+        reverse_proxy app:3000 {
+            header_up Host {host}
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+        }
     }
 
     # Structured logs for production monitoring
