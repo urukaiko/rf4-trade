@@ -123,36 +123,31 @@
     isLoadingMore = true;
     try {
       const nextPage = currentPage + 1;
-      const url = new URL($page.url);
-      url.searchParams.set('page', String(nextPage));
 
-      const response = await fetch(url.toString(), {
-        headers: { Accept: 'text/html' },
-      });
+      // Build API URL preserving current filter params
+      const params = new URLSearchParams();
+      params.set('page', String(nextPage));
+
+      const offerItemsParam = $page.url.searchParams.get('offer_items');
+      const wantItemsParam = $page.url.searchParams.get('want_items');
+      if (offerItemsParam) params.set('offer_items', offerItemsParam);
+      if (wantItemsParam) params.set('want_items', wantItemsParam);
+
+      const response = await fetch(`/api/trades?${params.toString()}`);
 
       if (!response.ok) return;
 
-      const html = await response.text();
+      const result = await response.json();
+      const newTrades: TradeView[] = result.trades ?? [];
+      const newHasMore: boolean = result.hasMore ?? false;
 
-      // Extract trades from the page script tag (SvelteKit data)
-      const match = html.match(/__sveltekit_data__\s*=\s*(\{.*?\});/s);
-      if (match?.[1]) {
-        try {
-          const parsed = JSON.parse(match[1]);
-          const newTrades = parsed?.nodes?.[1]?.data?.trades ?? [];
-          const newHasMore = parsed?.nodes?.[1]?.data?.hasMore ?? false;
-
-          if (newTrades.length > 0) {
-            // Append only unique trades
-            const existingIds = new Set(liveTrades.map((t) => t.id));
-            const uniqueNew = newTrades.filter((t: TradeView) => !existingIds.has(t.id));
-            liveTrades = [...liveTrades, ...uniqueNew];
-            hasMore = newHasMore;
-            currentPage = nextPage;
-          }
-        } catch {
-          // JSON parse error -- skip
-        }
+      if (newTrades.length > 0) {
+        // Append only unique trades
+        const existingIds = new Set(liveTrades.map((t) => t.id));
+        const uniqueNew = newTrades.filter((t) => !existingIds.has(t.id));
+        liveTrades = [...liveTrades, ...uniqueNew];
+        hasMore = newHasMore;
+        currentPage = nextPage;
       }
     } finally {
       isLoadingMore = false;
