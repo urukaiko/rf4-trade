@@ -25,5 +25,6 @@ node_modules/
 # Local tools
 tools/
 
-# Game assets (legal reasons)
-static/images/items/
+# Game assets (legal reasons - ignore images, keep json)
+static/images/items/*
+!static/images/items/*.json

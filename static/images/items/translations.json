@@ -1,0 +1,726 @@
+{
+  "gold": {
+    "en": "Gold",
+    "ru": "Золото"
+  },
+  "premium": {
+    "en": "Premium",
+    "ru": "Премиум"
+  },
+  "AV_shamp_1l": {
+    "en": "Champagne Novopokrovskoe",
+    "ru": "Шампанское Новопокровское"
+  },
+  "AV_shamp_p_6l": {
+    "en": "Champagne Novopokrovskoe Prestige",
+    "ru": "Шампанское Новопокровское Престиж"
+  },
+  "XXIVA_bottle_vdka": {
+    "en": "Vodka Golden Imperial",
+    "ru": "Водка Золотой Империал"
+  },
+  "apple_sidr": {
+    "en": "Apple cider",
+    "ru": "Яблочный сидр"
+  },
+  "apples": {
+    "en": "Apples",
+    "ru": "Яблоки"
+  },
+  "bait_dreissena": {
+    "en": "Zebra mussel meat",
+    "ru": "Мясо дрейссены"
+  },
+  "baitfrog": {
+    "en": "Frog",
+    "ru": "Лягушка"
+  },
+  "barm_ff": {
+    "en": "Yeast",
+    "ru": "Дрожжи"
+  },
+  "beef": {
+    "en": "Beef",
+    "ru": "Говядина"
+  },
+  "black_leech": {
+    "en": "Leech",
+    "ru": "Пиявка"
+  },
+  "black_pepper_ff": {
+    "en": "Black pepper",
+    "ru": "Чёрный перец"
+  },
+  "bloodworm": {
+    "en": "Bloodworm",
+    "ru": "Мотыль"
+  },
+  "boyar_bottle_vdka": {
+    "en": "Boyar’s Frosty vodka",
+    "ru": "Водка Боярская Морозная"
+  },
+  "bread": {
+    "en": "Wet Bread",
+    "ru": "Хлеб"
+  },
+  "bublik": {
+    "en": "Bublik",
+    "ru": "Бублик"
+  },
+  "buckwheat_porridge": {
+    "en": "Buckwheat with burbot liver",
+    "ru": "Гречка с налимьими печёнками"
+  },
+  "butter_ff": {
+    "en": "Butter",
+    "ru": "Сливочное масло"
+  },
+  "cabbage": {
+    "en": "Cabbage leaf",
+    "ru": "Капустный лист"
+  },
+  "caddisfly": {
+    "en": "Caddisfly",
+    "ru": "Ручейник"
+  },
+  "cake_rf4": {
+    "en": "Chocolate cake",
+    "ru": "Торт шоколадный"
+  },
+  "carrot": {
+    "en": "Carrot",
+    "ru": "Морковь"
+  },
+  "caviar": {
+    "en": "Roe",
+    "ru": "Икра"
+  },
+  "caviar_black": {
+    "en": "Black caviar",
+    "ru": "Икра чёрная"
+  },
+  "caviar_pike": {
+    "en": "Pike caviar",
+    "ru": "Икра щучья"
+  },
+  "caviar_red": {
+    "en": "Red caviar",
+    "ru": "Икра красная"
+  },
+  "cf_squid": {
+    "en": "Frozen squid",
+    "ru": "Замороженный кальмар"
+  },
+  "cheese_cube": {
+    "en": "Diced cheese",
+    "ru": "Сырный кубик"
+  },
+  "corn": {
+    "en": "Corn seeds",
+    "ru": "Зерна кукурузы"
+  },
+  "crab_meat": {
+    "en": "Crab meat",
+    "ru": "Крабовое мясо"
+  },
+  "crawfish_meat": {
+    "en": "Crayfish tail",
+    "ru": "Раковая шейка"
+  },
+  "cricket": {
+    "en": "Cricket",
+    "ru": "Сверчок"
+  },
+  "cucumbers": {
+    "en": "Cucumbers",
+    "ru": "Огурцы"
+  },
+  "cucumbers_mc": {
+    "en": "Freshly pickled cucumbers",
+    "ru": "Малосольные огурцы"
+  },
+  "dorbeetle": {
+    "en": "Dung beetle",
+    "ru": "Жук навозный"
+  },
+  "dough_cottage": {
+    "en": "Cottage cheese dough",
+    "ru": "Тесто творожное"
+  },
+  "dough_egg": {
+    "en": "Egg dough",
+    "ru": "Тесто яичное"
+  },
+  "dough_garlic": {
+    "en": "Garlic dough",
+    "ru": "Тесто чесночное"
+  },
+  "dough_honey": {
+    "en": "Honey dough",
+    "ru": "Тесто медовое"
+  },
+  "dough_sweet": {
+    "en": "Sweet dough",
+    "ru": "Тесто сладкое"
+  },
+  "dried_chekhon": {
+    "en": "Dried sichel",
+    "ru": "Сушёная чехонь"
+  },
+  "dried_plotva": {
+    "en": "Dried roach",
+    "ru": "Сушёная плотва"
+  },
+  "farm_c_cheese": {
+    "en": "Cottage cheese",
+    "ru": "Творог"
+  },
+  "farm_cheese": {
+    "en": "Cheese",
+    "ru": "Сыр"
+  },
+  "farm_s_cream": {
+    "en": "Sour cream",
+    "ru": "Сметана"
+  },
+  "feedadds_wheat": {
+    "en": "Wheat Grains",
+    "ru": "Зёрна пшеницы"
+  },
+  "ff_black_tea": {
+    "en": "A pack of tea",
+    "ru": "Пачка чая"
+  },
+  "ff_cornflour": {
+    "en": "Corn flour",
+    "ru": "Кукурузная мука"
+  },
+  "ff_garlic": {
+    "en": "Garlic",
+    "ru": "Чеснок"
+  },
+  "ff_gv_spices": {
+    "en": "Spices for mulled wine",
+    "ru": "Специи для глинтвейна"
+  },
+  "ff_honey": {
+    "en": "Honey",
+    "ru": "Мёд"
+  },
+  "ff_ins_coffe": {
+    "en": "Instant coffee",
+    "ru": "Растворимый кофе"
+  },
+  "ff_ins_noodles": {
+    "en": "Instant noodles",
+    "ru": "Лапша быстрого приготовления"
+  },
+  "ff_krak_sausage": {
+    "en": "Krakow sausage",
+    "ru": "Краковская колбаса"
+  },
+  "ff_pack_kefir": {
+    "en": "Kefir",
+    "ru": "Кефир"
+  },
+  "ff_pack_milk": {
+    "en": "Pasteurized milk",
+    "ru": "Молоко пастеризованное"
+  },
+  "ff_pack_sausages": {
+    "en": "Sausages",
+    "ru": "Сосиски"
+  },
+  "ff_pasta": {
+    "en": "A package of noodles",
+    "ru": "Пачка макарон"
+  },
+  "ff_pearl_barley": {
+    "en": "Pearl barley",
+    "ru": "Перловая крупа"
+  },
+  "ff_pork_canned": {
+    "en": "Canned pork",
+    "ru": "Тушенка свиная"
+  },
+  "ff_proc_cheese": {
+    "en": "Melted cheese",
+    "ru": "Плавленный сырок"
+  },
+  "ff_saira_canned": {
+    "en": "Canned saury",
+    "ru": "Сайра"
+  },
+  "ff_salt": {
+    "en": "A package of salt",
+    "ru": "Пачка соли"
+  },
+  "ff_semolina": {
+    "en": "Semolina",
+    "ru": "Манная крупа"
+  },
+  "ff_sugar": {
+    "en": "Sugar",
+    "ru": "Сахар"
+  },
+  "ff_sun_oil": {
+    "en": "Sunflower Oil",
+    "ru": "Масло подсолнечное"
+  },
+  "ff_wheat_flour": {
+    "en": "Wheat flour",
+    "ru": "Пшеничная мука"
+  },
+  "fish_pieces": {
+    "en": "Pieces of fish",
+    "ru": "Кусочки рыбы"
+  },
+  "fish_soup_nal": {
+    "en": "Burbot soup",
+    "ru": "Уха мневая"
+  },
+  "fish_soup_red": {
+    "en": "Red fish soup",
+    "ru": "Уха красная"
+  },
+  "fish_soup_tr": {
+    "en": "Triple fish soup",
+    "ru": "Уха тройная"
+  },
+  "fly": {
+    "en": "Fly",
+    "ru": "Муха"
+  },
+  "food_cacao": {
+    "en": "A package of cocoa powder",
+    "ru": "Упаковка какао"
+  },
+  "food_drymilk": {
+    "en": "Powdered milk",
+    "ru": "Сухое молоко"
+  },
+  "food_egg": {
+    "en": "Chicken egg",
+    "ru": "Куриное яйцо"
+  },
+  "food_gorokh": {
+    "en": "Shelled peas",
+    "ru": "Лущеный горох"
+  },
+  "food_hercules": {
+    "en": "Hercules Oatmeal",
+    "ru": "Геркулес"
+  },
+  "food_rice": {
+    "en": "Rice",
+    "ru": "Рис"
+  },
+  "food_sweetmilk": {
+    "en": "Condensed milk",
+    "ru": "Сгущённое молоко"
+  },
+  "fried_bychki": {
+    "en": "Fried chinese sleeper",
+    "ru": "Жареные бычки"
+  },
+  "fried_carp": {
+    "en": "Fried carp",
+    "ru": "Жареный карп"
+  },
+  "fried_karasy": {
+    "en": "Fried crucian carp",
+    "ru": "Жареные караси"
+  },
+  "fried_nalim": {
+    "en": "Fried burbot",
+    "ru": "Жареный налим"
+  },
+  "fried_sudak": {
+    "en": "Fried zander",
+    "ru": "Жареный судак"
+  },
+  "gadfly": {
+    "en": "Warble fly",
+    "ru": "Овод"
+  },
+  "gadfly_little": {
+    "en": "Horse-fly",
+    "ru": "Слепень"
+  },
+  "gammarus_fresh": {
+    "en": "Freshwater Gammarus",
+    "ru": "Бокоплав пресноводный"
+  },
+  "grasshopper": {
+    "en": "Grasshopper",
+    "ru": "Кузнечик"
+  },
+  "grechka": {
+    "en": "Buckwheat",
+    "ru": "Гречневая крупа"
+  },
+  "gryllotalpa": {
+    "en": "Mole cricket",
+    "ru": "Медведка"
+  },
+  "hm_lard": {
+    "en": "Home-made Bacon",
+    "ru": "Сало домашнее"
+  },
+  "hooch_corn": {
+    "en": "Bread wine",
+    "ru": "Хлебное вино"
+  },
+  "hooch_potato": {
+    "en": "Potato moonshine",
+    "ru": "Самогон картофельный"
+  },
+  "kalach": {
+    "en": "Kalach",
+    "ru": "Калач"
+  },
+  "lard": {
+    "en": "Bacon",
+    "ru": "Сало"
+  },
+  "lb_bottle_eks": {
+    "en": "The Three Tank Troopers. Export",
+    "ru": "Три Танкиста экспортное"
+  },
+  "lb_bottle_krep": {
+    "en": "The Three Tank Troopers. Strong",
+    "ru": "Три Танкиста крепкое"
+  },
+  "lb_bottle_lim": {
+    "en": "Jingle Bell lemonade",
+    "ru": "Лимонад Бубенчик"
+  },
+  "lb_bottle_trad": {
+    "en": "The Three Tank Troopers. Traditional",
+    "ru": "Три Танкиста традиционное"
+  },
+  "lim_ny25_bottle": {
+    "en": "New Year's Bells Lemonade",
+    "ru": "Бубенчик новогодний"
+  },
+  "loaf_01": {
+    "en": "Threaded loaf",
+    "ru": "Батон нарезной"
+  },
+  "maggot": {
+    "en": "Maggot",
+    "ru": "Опарыш"
+  },
+  "maggot_caster": {
+    "en": "Caster",
+    "ru": "Кастер"
+  },
+  "maybug": {
+    "en": "Cockchafer",
+    "ru": "Майский жук"
+  },
+  "maybug_larva": {
+    "en": "Cockchafer Larva",
+    "ru": "Личинка майского жука"
+  },
+  "mayfly": {
+    "en": "Mayfly",
+    "ru": "Поденка"
+  },
+  "melon": {
+    "en": "Melon",
+    "ru": "Дыня"
+  },
+  "muckworm": {
+    "en": "Red compost worm",
+    "ru": "Червь навозный"
+  },
+  "naiad": {
+    "en": "Mayfly larva",
+    "ru": "Личинка поденки"
+  },
+  "onion": {
+    "en": "Onion",
+    "ru": "Лук"
+  },
+  "pack_marshm": {
+    "en": "Marshmallows",
+    "ru": "Маршмеллоу"
+  },
+  "pb_d_choc": {
+    "en": "Dark chocolate METROPOLIA",
+    "ru": "Темный шоколад METROPOLIA"
+  },
+  "pb_m_choc": {
+    "en": "Milk chocolate METROPOLIA",
+    "ru": "Молочный шоколад METROPOLIA"
+  },
+  "peas": {
+    "en": "Pea",
+    "ru": "Горошек"
+  },
+  "pill_pack": {
+    "en": "Sorbimax",
+    "ru": "Sorbimax"
+  },
+  "plum": {
+    "en": "Plum",
+    "ru": "Слива"
+  },
+  "pm_honey_l": {
+    "en": "True Honey",
+    "ru": "Мёд липовый"
+  },
+  "pork": {
+    "en": "Pork",
+    "ru": "Свинина"
+  },
+  "porridge_corn": {
+    "en": "Cornmeal porridge",
+    "ru": "Каша кукурузная"
+  },
+  "porridge_oatmeal": {
+    "en": "Oatmeal porridge",
+    "ru": "Каша овсяная"
+  },
+  "porridge_pea": {
+    "en": "Pea porridge",
+    "ru": "Каша гороховая"
+  },
+  "porridge_pearl_barley": {
+    "en": "Pearl barley",
+    "ru": "Каша перловая"
+  },
+  "porridge_semolina": {
+    "en": "Semolina",
+    "ru": "Каша манная"
+  },
+  "potato": {
+    "en": "Diced potatoes",
+    "ru": "Картофельный кубик"
+  },
+  "potatoes": {
+    "en": "Potatoes",
+    "ru": "Картофель"
+  },
+  "r_pie": {
+    "en": "Hotcake",
+    "ru": "Пирожок"
+  },
+  "rd_red_vine": {
+    "en": "Ruby Diamond",
+    "ru": "Ruby Diamond"
+  },
+  "rd_white_vine": {
+    "en": "Kuban Blanche",
+    "ru": "Kuban Blanche"
+  },
+  "rot_bottle_porto": {
+    "en": "Chepraga port wine",
+    "ru": "Портвейн Чепрага"
+  },
+  "rye_bread_r": {
+    "en": "Local Bread",
+    "ru": "Местный хлеб"
+  },
+  "scolytinae": {
+    "en": "Bark beetle larva",
+    "ru": "Личинка короеда"
+  },
+  "sd_shoc_bar": {
+    "en": "Sugar Duck Classic",
+    "ru": "Sugar Duck Classic"
+  },
+  "sm_pikeperch": {
+    "en": "Smoked zander",
+    "ru": "Копчёный судак"
+  },
+  "sm_trout": {
+    "en": "Smoked trout",
+    "ru": "Копченая форель"
+  },
+  "smoked_bream": {
+    "en": "Smoked bream",
+    "ru": "Копчёный лещ"
+  },
+  "smoked_catfish": {
+    "en": "Smoked catfish",
+    "ru": "Копчёный сом"
+  },
+  "smoked_salmon": {
+    "en": "Smoked salmon",
+    "ru": "Копчёный лосось"
+  },
+  "stonefly_nymph": {
+    "en": "Stonefly larva",
+    "ru": "Личинка веснянки"
+  },
+  "thermos_cacao": {
+    "en": "Thermos of cocoa",
+    "ru": "Термос с какао"
+  },
+  "thermos_coffee": {
+    "en": "Thermos of coffee",
+    "ru": "Термос с кофе"
+  },
+  "thermos_gwein": {
+    "en": "Thermos of mulled wine",
+    "ru": "Термос с глинтвейном"
+  },
+  "thermos_tea": {
+    "en": "Thermos of tea",
+    "ru": "Термос с чаем"
+  },
+  "tungus_buben": {
+    "en": "Shaman's tambourine",
+    "ru": "Шаманский бубен"
+  },
+  "tungus_vodka": {
+    "en": "Vodka TUNGUS",
+    "ru": "Водка TUNGUS"
+  },
+  "tungus_vodka_b": {
+    "en": "Vodka TUNGUS",
+    "ru": "Водка TUNGUS"
+  },
+  "unibeetle_larva": {
+    "en": "Rhinoceros beetle larva",
+    "ru": "Личинка жука-носорога"
+  },
+  "unio_crassus": {
+    "en": "River mussel meat",
+    "ru": "Мясо перловицы"
+  },
+  "vine_bottle_em": {
+    "en": "Homemade wine",
+    "ru": "Домашнее вино"
+  },
+  "vypolzok_01": {
+    "en": "Nightcrawler",
+    "ru": "Выползок"
+  },
+  "waterbug": {
+    "en": "Diving beetle",
+    "ru": "Жук-плавунец"
+  },
+  "watergrass": {
+    "en": "A bunch of algae",
+    "ru": "Пучок водорослей"
+  },
+  "wheat_grain": {
+    "en": "Wheat seeds",
+    "ru": "Зерна пшеницы"
+  },
+  "wmelon_ast": {
+    "en": "Watermelon",
+    "ru": "Арбуз"
+  },
+  "wood_bottle_cask": {
+    "en": "Woodman Cask Bottle",
+    "ru": "Woodman Cask Bottle"
+  },
+  "wood_bottle_dark": {
+    "en": "Woodman Dark Bottle",
+    "ru": "Woodman Dark Bottle"
+  },
+  "wood_bottle_lager": {
+    "en": "Woodman Lager Bottle",
+    "ru": "Woodman Lager Bottle"
+  },
+  "wood_can_cask": {
+    "en": "Woodman Cask Can",
+    "ru": "Woodman Cask Can"
+  },
+  "wood_can_dark": {
+    "en": "Woodman Dark Can",
+    "ru": "Woodman Dark Can"
+  },
+  "wood_can_lager": {
+    "en": "Woodman Lager Can",
+    "ru": "Woodman Lager Can"
+  },
+  "worm_01": {
+    "en": "Worm",
+    "ru": "Червь"
+  },
+  "worm_asurv": {
+    "en": "Brandling Worm \"Astrakhan Variation\"",
+    "ru": "Червь навозный \"Астраханский живучий\""
+  },
+  "worm_msor": {
+    "en": "Black-headed Worm \"Moscow Variation\"",
+    "ru": "Червь \"Московский сортовой\""
+  },
+  "worm_orlen": {
+    "en": "Redhead Worm",
+    "ru": "Червь \"Ленинградский\""
+  },
+  "worm_sur": {
+    "en": "Brandling Worm \"Sura Variation\"",
+    "ru": "Червь \"Сурский Навозник\""
+  },
+  "worm_volh": {
+    "en": "Brandling Worm \"Volkhov Variation\"",
+    "ru": "Червь навозный \"Волховский\""
+  },
+  "zdn_bottle_cogn3": {
+    "en": "General's brandy",
+    "ru": "Коньяк Генеральский"
+  },
+  "zdn_bottle_cogn5": {
+    "en": "Marshal's brandy",
+    "ru": "Коньяк Маршальский"
+  },
+  "zdn_bottle_vdka": {
+    "en": "Proletarian vodka",
+    "ru": "Водка Пролетарская"
+  },
+  "fb_bf_makrel": {
+    "en": "Large fillet - Mackerel",
+    "ru": "Большое филе - Макрель"
+  },
+  "fb_bf_saida": {
+    "en": "Large fillet - Saithe",
+    "ru": "Большое филе - Сайда"
+  },
+  "fb_bf_seld": {
+    "en": "Large fillet - Herring",
+    "ru": "Большое филе - Сельдь"
+  },
+  "fb_gf_makrel": {
+    "en": "Huge fillet - Mackerel",
+    "ru": "Огромное филе - Макрель"
+  },
+  "fb_gf_saida": {
+    "en": "Huge fillet - Saithe",
+    "ru": "Огромное филе - Сайда"
+  },
+  "fb_gf_seld": {
+    "en": "Huge fillet - Herring",
+    "ru": "Огромное филе - Сельдь"
+  },
+  "fb_lf_makrel": {
+    "en": "Small fillet - Mackerel",
+    "ru": "Маленькое филе - Макрель"
+  },
+  "fb_lf_saida": {
+    "en": "Small fillet - Saithe",
+    "ru": "Маленькое филе - Сайда"
+  },
+  "fb_lf_seld": {
+    "en": "Small fillet - Herring",
+    "ru": "Маленькое филе - Сельдь"
+  },
+  "fb_sf_makrel": {
+    "en": "Fillet strip - Mackerel",
+    "ru": "Полоска филе - Макрель"
+  },
+  "fb_sf_saida": {
+    "en": "Fillet strip - Saithe",
+    "ru": "Полоска филе - Сайда"
+  },
+  "fb_sf_seld": {
+    "en": "Fillet strip - Herring",
+    "ru": "Полоска филе - Сельдь"
+  }
+}

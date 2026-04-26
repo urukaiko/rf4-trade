@@ -1,0 +1,58 @@
+{
+  "baits": {
+    "ru": "Наживка",
+    "en": "Baits"
+  },
+  "baitfish": {
+    "ru": "Живец",
+    "en": "Baitfish"
+  },
+  "brustaceans": {
+    "ru": "Рачки",
+    "en": "Crustaceans"
+  },
+  "insects": {
+    "ru": "Насекомые",
+    "en": "Insects"
+  },
+  "larvae": {
+    "ru": "Личинка",
+    "en": "Larvae"
+  },
+  "live": {
+    "ru": "Живая",
+    "en": "Live Bait"
+  },
+  "natural": {
+    "ru": "Натуральная",
+    "en": "Natural"
+  },
+  "worms": {
+    "ru": "Черви",
+    "en": "Worms"
+  },
+  "currency": {
+    "ru": "Валюта",
+    "en": "Currency"
+  },
+  "food": {
+    "ru": "Еда",
+    "en": "Food"
+  },
+  "alcohol": {
+    "ru": "Алкоголь",
+    "en": "Alcohol"
+  },
+  "drinks": {
+    "ru": "Напитки",
+    "en": "Drinks"
+  },
+  "ingredients": {
+    "ru": "Ингредиенты",
+    "en": "Ingredients"
+  },
+  "fillet": {
+    "ru": "Филе",
+    "en": "Fillet"
+  }
+}
