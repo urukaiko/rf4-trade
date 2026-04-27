@@ -131,9 +131,7 @@ cd /opt/rf4-trade
 
 ## License
 
-Copyright © 2024 [Твое Имя / Ник]
-
-Apache License 2.0 with the Commons Clause Restriction. Commercial use is prohibited without explicit written permission. See [LICENSE](LICENSE) for details.
+AGPL-3.0-or-later — see [LICENSE](LICENSE).
 
 ---
 
